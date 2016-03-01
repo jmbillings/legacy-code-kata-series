@@ -71,7 +71,14 @@ namespace GildedRose.Core
                         {
                             if (item.Name != "Sulfuras, Hand of Ragnaros")
                             {
-                                item.Quality = item.Quality - 1;
+                                if (item.Name == "Conjured Mana Cake")
+                                {
+                                    item.Quality = item.Quality - 2;
+                                }
+                                else
+                                {
+                                    item.Quality = item.Quality - 1;
+                                }
                             }
                         }
                     }
