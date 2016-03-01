@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 namespace GildedRose.Tests
 {
-    public class UpdateQualityTests
+    public class ItemUpdaterTests
     {
         [Test]
         public void StandardItemShouldLowerQualityAndSellInByOne()
@@ -14,8 +14,8 @@ namespace GildedRose.Tests
                 new Item {Name = "+5 Dexterity Vest", SellIn = 3, Quality = 6}
             };
 
-            var program = new QualityUpdater();
-            program.UpdateQuality(items);
+            var program = new ItemUpdater();
+            program.Update(items);
 
             Assert.AreEqual(5, items[0].Quality);
             Assert.AreEqual(2, items[0].SellIn);
@@ -29,8 +29,8 @@ namespace GildedRose.Tests
                 new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
             };
 
-            var program = new QualityUpdater();
-            program.UpdateQuality(items);
+            var program = new ItemUpdater();
+            program.Update(items);
 
             Assert.AreEqual(4, items[0].Quality);
             Assert.AreEqual(2, items[0].SellIn);
@@ -44,8 +44,8 @@ namespace GildedRose.Tests
                 new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 1}
             };
 
-            var program = new QualityUpdater();
-            program.UpdateQuality(items);
+            var program = new ItemUpdater();
+            program.Update(items);
 
             Assert.AreEqual(0, items[0].Quality);
             Assert.AreEqual(2, items[0].SellIn);

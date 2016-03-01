@@ -29,7 +29,7 @@ namespace GildedRose.Console
                 }
             };
 
-            new QualityUpdater().UpdateQuality(app.Items);
+            new ItemUpdater().Update(app.Items);
 
             System.Console.ReadKey();
         }
