@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace GildedRose.Core
 {
@@ -14,7 +15,7 @@ namespace GildedRose.Core
                     {
                         if (items[i].Name == "Conjured Mana Cake")
                         {
-                            items[i].Quality = items[i].Quality - 2;
+                            items[i].Quality = Math.Max(items[i].Quality - 2, 0);
                         }
                         else if (items[i].Name != "Sulfuras, Hand of Ragnaros")
                         {
