@@ -17,6 +17,28 @@ namespace GildedRose.Tests
         }
 
         [Test]
+        public void StandardItemShouldLowerQualityTwiceAsFastWhenSellInIsNegative()
+        {
+            var item = new Item { Name = "+5 Dexterity Vest", SellIn = -2, Quality = 6 };
+
+            new ItemUpdater().Update(item);
+
+            Assert.AreEqual(4, item.Quality);
+            Assert.AreEqual(-3, item.SellIn);
+        }
+
+        [Test]
+        public void StandardItemShouldLowerQualityTwiceAsFastWhenSellInIsZero()
+        {
+            var item = new Item { Name = "+5 Dexterity Vest", SellIn = 0, Quality = 6 };
+
+            new ItemUpdater().Update(item);
+
+            Assert.AreEqual(4, item.Quality);
+            Assert.AreEqual(-1, item.SellIn);
+        }
+
+        [Test]
         public void ConjuredItemShouldLowerQualityByTwoAndSellInByOne()
         {
             var item = new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6};
@@ -36,6 +58,28 @@ namespace GildedRose.Tests
 
             Assert.AreEqual(0, item.Quality);
             Assert.AreEqual(2, item.SellIn);
+        }
+
+        [Test]
+        public void ConjuredItemQualityDegradesTwiceAsFastWhenSellInIsNegative()
+        {
+            var item = new Item { Name = "Conjured Mana Cake", SellIn = -3, Quality = 6 };
+
+            new ItemUpdater().Update(item);
+
+            Assert.AreEqual(2, item.Quality);
+            Assert.AreEqual(-4, item.SellIn);
+        }
+
+        [Test]
+        public void ConjuredItemQualityDegradesTwiceAsFastWhenSellInIsZero()
+        {
+            var item = new Item { Name = "Conjured Mana Cake", SellIn = 0, Quality = 6 };
+
+            new ItemUpdater().Update(item);
+
+            Assert.AreEqual(2, item.Quality);
+            Assert.AreEqual(-1, item.SellIn);
         }
     }
 }
