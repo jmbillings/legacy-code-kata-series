@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using GildedRose.Core;
 using NUnit.Framework;
 
@@ -9,46 +8,34 @@ namespace GildedRose.Tests
         [Test]
         public void StandardItemShouldLowerQualityAndSellInByOne()
         {
-            var items = new List<Item>
-            {
-                new Item {Name = "+5 Dexterity Vest", SellIn = 3, Quality = 6}
-            };
+            var item = new Item {Name = "+5 Dexterity Vest", SellIn = 3, Quality = 6};
 
-            var program = new ItemUpdater();
-            program.Update(items);
+            new ItemUpdater().Update(item);
 
-            Assert.AreEqual(5, items[0].Quality);
-            Assert.AreEqual(2, items[0].SellIn);
+            Assert.AreEqual(5, item.Quality);
+            Assert.AreEqual(2, item.SellIn);
         }
 
         [Test]
         public void ConjuredItemShouldLowerQualityByTwoAndSellInByOne()
         {
-            var items = new List<Item>
-            {
-                new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
-            };
+            var item = new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6};
 
-            var program = new ItemUpdater();
-            program.Update(items);
+            new ItemUpdater().Update(item);
 
-            Assert.AreEqual(4, items[0].Quality);
-            Assert.AreEqual(2, items[0].SellIn);
+            Assert.AreEqual(4, item.Quality);
+            Assert.AreEqual(2, item.SellIn);
         }
 
         [Test]
         public void ConjuredItemCanNeverHaveNegativeQuality()
         {
-            var items = new List<Item>
-            {
-                new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 1}
-            };
+            var item = new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 1};
 
-            var program = new ItemUpdater();
-            program.Update(items);
+            new ItemUpdater().Update(item);
 
-            Assert.AreEqual(0, items[0].Quality);
-            Assert.AreEqual(2, items[0].SellIn);
+            Assert.AreEqual(0, item.Quality);
+            Assert.AreEqual(2, item.SellIn);
         }
     }
 }
