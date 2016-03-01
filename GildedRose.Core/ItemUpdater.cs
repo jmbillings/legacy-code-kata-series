@@ -13,7 +13,7 @@ namespace GildedRose.Core
             }
         }
 
-        private static void Update(Item item)
+        public void Update(Item item)
         {
             if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
             {
