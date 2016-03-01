@@ -20,5 +20,20 @@ namespace GildedRose.Tests
             Assert.AreEqual(5, items[0].Quality);
             Assert.AreEqual(2, items[0].SellIn);
         }
+
+        [Test]
+        public void ConjuredItemShouldLowerQualityByTwoAndSellInByOne()
+        {
+            var items = new List<Item>
+            {
+                new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
+            };
+
+            var program = new QualityUpdater();
+            program.UpdateQuality(items);
+
+            Assert.AreEqual(4, items[0].Quality);
+            Assert.AreEqual(2, items[0].SellIn);
+        }
     }
 }
