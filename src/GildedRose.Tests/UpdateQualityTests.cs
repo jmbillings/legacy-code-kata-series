@@ -11,7 +11,7 @@ namespace GildedRose.Tests
         {
             var items = new List<Item>
             {
-                new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
+                new Item {Name = "+5 Dexterity Vest", SellIn = 3, Quality = 6}
             };
 
             var program = new QualityUpdater();
