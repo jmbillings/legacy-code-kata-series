@@ -15,15 +15,17 @@ namespace GildedRose.Core
 
         public void Update(Item item)
         {
+            if (item.Name == "Conjured Mana Cake")
+            {
+                UpdateConjuredItem(item);
+                return;
+            }
+
             if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
             {
                 if (item.Quality > 0)
                 {
-                    if (item.Name == "Conjured Mana Cake")
-                    {
-                        item.Quality = Math.Max(item.Quality - 2, 0);
-                    }
-                    else if (item.Name != "Sulfuras, Hand of Ragnaros")
+                    if (item.Name != "Sulfuras, Hand of Ragnaros")
                     {
                         item.Quality = item.Quality - 1;
                     }
@@ -71,14 +73,7 @@ namespace GildedRose.Core
                         {
                             if (item.Name != "Sulfuras, Hand of Ragnaros")
                             {
-                                if (item.Name == "Conjured Mana Cake")
-                                {
-                                    item.Quality = item.Quality - 2;
-                                }
-                                else
-                                {
-                                    item.Quality = item.Quality - 1;
-                                }
+                                item.Quality = item.Quality - 1;
                             }
                         }
                     }
@@ -95,6 +90,19 @@ namespace GildedRose.Core
                     }
                 }
             }
+        }
+
+        private void UpdateConjuredItem(Item item)
+        {
+            item.Quality = item.Quality - 2;
+            item.SellIn = item.SellIn - 1;
+
+            if (item.SellIn < 0)
+            {
+                item.Quality = item.Quality - 2;
+            }
+
+            item.Quality = Math.Max(item.Quality, 0);
         }
     }
 }
