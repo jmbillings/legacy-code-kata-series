@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GildedRose.Core;
 
 namespace GildedRose.Console
 {
@@ -32,14 +33,5 @@ namespace GildedRose.Console
 
             System.Console.ReadKey();
         }
-    }
-
-    public class Item
-    {
-        public string Name { get; set; }
-
-        public int SellIn { get; set; }
-
-        public int Quality { get; set; }
     }
 }

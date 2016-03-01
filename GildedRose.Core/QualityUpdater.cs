@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace GildedRose.Console
+namespace GildedRose.Core
 {
     public class QualityUpdater
     {
