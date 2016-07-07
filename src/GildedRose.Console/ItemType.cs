@@ -1,6 +1,6 @@
 ﻿namespace GildedRose.Console
 {
-    enum ItemType
+    public enum ItemType
     {
         Aged,
         Legendary,
