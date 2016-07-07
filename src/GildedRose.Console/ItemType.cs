@@ -2,9 +2,9 @@
 {
     public enum ItemType
     {
+        Perishable,
         Aged,
         Legendary,
-        Perishable,
         Event,
         Conjured
     }
