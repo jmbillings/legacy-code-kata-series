@@ -1,6 +1,6 @@
 ﻿namespace GildedRose.Console
 {
-    internal class EventItemUpdateRule
+    internal class EventItemUpdateRule : IItemUpdateRule
     {
         public void UpdateItem(Item item)
         {

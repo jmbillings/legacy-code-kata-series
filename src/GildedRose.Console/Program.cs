@@ -60,29 +60,9 @@ namespace GildedRose.Console
         {
             foreach (var item in items)
             {
-                switch (item.ItemType)
-                {
-                    case ItemType.Aged:
-                        new AgedItemUpdateRule().UpdateItem(item);
-                        break;
-                    case ItemType.Event:
-                        new EventItemUpdateRule().UpdateItem(item);
-                        break;
-                    case ItemType.Legendary:
-                        new LegendaryItemUpdateRule().UpdateItem(item);
-                        break;
-                    case ItemType.Conjured:
-                        new ConjuredItemUpdateRule().UpdateItem(item);
-                        break;
-                    case ItemType.Perishable:
-                        new PerishableItemUpdateRule().UpdateItem(item);
-                        break;
-                    default:
-                        throw new InvalidOperationException(
-                            $"Item Type was not specified for item {item.Name}, of type {item.ItemType}");
-                }
+                var itemUpdateRule = ItemUpdateRuleFactory.CreateItemUpdateRule(item.ItemType);
+                itemUpdateRule.UpdateItem(item);
             }
         }
-
     }
 }
