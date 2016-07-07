@@ -76,7 +76,7 @@ namespace GildedRose.Console
                 {
                     UpdateConjuredItem(item);
                 }
-                else
+                else if (item.ItemType == ItemType.Perishable)
                 {
                     UpdatePerishableItem(item);
                 }
