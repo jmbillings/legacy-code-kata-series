@@ -2,7 +2,7 @@
 {
     internal class EventItemUpdateRule
     {
-        public static void UpdateDesirableEventItem(Item item)
+        public static void UpdateItem(Item item)
         {
             // Tickets are more valuable when an event is closer
             if (item.SellIn <= 10)

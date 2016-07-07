@@ -2,7 +2,7 @@
 {
     internal class LegendaryItemUpdateRule
     {
-        public static void UpdateLegendaryItem(Item item)
+        public static void UpdateItem(Item item)
         {
         }
     }

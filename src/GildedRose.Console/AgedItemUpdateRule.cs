@@ -2,7 +2,7 @@
 {
     internal class AgedItemUpdateRule
     {
-        public static void UpdateAgeingItem(Item item)
+        public static void UpdateItem(Item item)
         {
             item.IncreaseQuality();
             item.DecreaseSellIn();

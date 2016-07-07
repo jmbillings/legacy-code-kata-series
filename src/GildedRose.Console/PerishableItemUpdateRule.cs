@@ -2,7 +2,7 @@
 {
     internal class PerishableItemUpdateRule
     {
-        public static void UpdatePerishableItem(Item item)
+        public static void UpdateItem(Item item)
         {
             item.DecreaseQuality();
             item.DecreaseSellIn();
