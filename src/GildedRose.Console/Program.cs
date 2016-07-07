@@ -71,7 +71,7 @@ namespace GildedRose.Console
                 {
                     UpdateLegendaryItem(item);
                 }
-                else if (item.Name == "Conjured Mana Cake")
+                else if (item.ItemType == ItemType.Conjured)
                 {
                     UpdateConjuredItem(item);
                 }
