@@ -86,19 +86,19 @@ namespace GildedRose.Console
 
         private static void UpdateConjuredItem(Item item)
         {
-            DecreaseQuality(item);
-            DecreaseQuality(item);
-            DecreaseSellIn(item);
+            item.DecreaseQuality();
+            item.DecreaseQuality();
+            item.DecreaseSellIn();
         }
 
         private static void UpdateAgeingItem(Item item)
         {
-            IncreaseQuality(item);
-            DecreaseSellIn(item);
+            item.IncreaseQuality();
+            item.DecreaseSellIn();
 
-            if (HasPassedSellByDate(item))
+            if (item.HasPassedSellByDate())
             {
-                IncreaseQuality(item);
+                item.IncreaseQuality();
             }
         }
 
@@ -107,19 +107,19 @@ namespace GildedRose.Console
             // Tickets are more valuable when an event is closer
             if (item.SellIn <= 10)
             {
-                IncreaseQuality(item);
+                item.IncreaseQuality();
             }
 
             // They increase in value much more the closer we are to the event
             if (item.SellIn <= 5)
             {
-                IncreaseQuality(item);
+                item.IncreaseQuality();
             }
 
-            IncreaseQuality(item);
-            DecreaseSellIn(item);
+            item.IncreaseQuality();
+            item.DecreaseSellIn();
 
-            if (HasPassedSellByDate(item))
+            if (item.HasPassedSellByDate())
             {
                 item.Quality = 0;
             }
@@ -131,39 +131,13 @@ namespace GildedRose.Console
 
         private static void UpdatePerishableItem(Item item)
         {
-            DecreaseQuality(item);
-            DecreaseSellIn(item);
+            item.DecreaseQuality();
+            item.DecreaseSellIn();
 
-            if (HasPassedSellByDate(item))
+            if (item.HasPassedSellByDate())
             {
-                DecreaseQuality(item);
+                item.DecreaseQuality();
             }
-        }
-
-        private static bool HasPassedSellByDate(Item item)
-        {
-            return item.SellIn < 0;
-        }
-
-        private static void IncreaseQuality(Item item)
-        {
-            if (item.Quality < 50)
-            {
-                item.Quality = item.Quality + 1;
-            }
-        }
-
-        private static void DecreaseQuality(Item item)
-        {
-            if (item.Quality > 0)
-            {
-                item.Quality = item.Quality - 1;
-            }
-        }
-
-        private static void DecreaseSellIn(Item item)
-        {
-            item.SellIn = item.SellIn - 1;
         }
     }
 }
