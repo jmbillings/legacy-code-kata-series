@@ -7,7 +7,7 @@ namespace GildedRose.Tests
     public class ItemUpdaterTests
     {
         [Test]
-        public void StandardItemShouldLowerQualityAndSellInByOne()
+        public void PerishableItemShouldLowerQualityAndSellInByOne()
         {
             var item = new Item { SellIn = 3, Quality = 6 };
 
@@ -18,7 +18,7 @@ namespace GildedRose.Tests
         }
 
         [Test]
-        public void StandardItemShouldLowerQualityTwiceAsFastWhenSellInIsNegative()
+        public void PerishableItemShouldLowerQualityTwiceAsFastWhenSellInIsNegative()
         {
             var item = new Item { SellIn = -2, Quality = 6 };
 
@@ -29,7 +29,7 @@ namespace GildedRose.Tests
         }
 
         [Test]
-        public void StandardItemShouldLowerQualityTwiceAsFastWhenSellInIsZero()
+        public void PerishableItemShouldLowerQualityTwiceAsFastWhenSellInIsZero()
         {
             var item = new Item { SellIn = 0, Quality = 6 };
 
@@ -40,7 +40,7 @@ namespace GildedRose.Tests
         }
 
         [Test]
-        public void BackstagePassItemShouldIncreaseQualityTwiceAsFastWhenSellInLessThanElevenDays()
+        public void EventItemShouldIncreaseQualityTwiceAsFastWhenSellInLessThanElevenDays()
         {
             var item = new Item { SellIn = 10, Quality = 6, ItemType = ItemType.Event };
 
@@ -51,7 +51,7 @@ namespace GildedRose.Tests
         }
 
         [Test]
-        public void BackstagePassItemShouldIncreaseQualityThreeTimesAsFastWhenSellInLessThanSixDays()
+        public void EventItemShouldIncreaseQualityThreeTimesAsFastWhenSellInLessThanSixDays()
         {
             var item = new Item { SellIn = 5, Quality = 6, ItemType = ItemType.Event };
 
@@ -62,7 +62,7 @@ namespace GildedRose.Tests
         }
 
         [Test]
-        public void BackstagePassItemShouldHaveZeroQualityWhenSellInBelowZero()
+        public void EventItemShouldHaveZeroQualityWhenSellInBelowZero()
         {
             var item = new Item { SellIn = 0, Quality = 6, ItemType = ItemType.Event };
 
@@ -73,7 +73,7 @@ namespace GildedRose.Tests
         }
 
         [Test]
-        public void AgedBrieQualityIncreasesTwiceAsFastWhenSellInIsLessThanZero()
+        public void AgedItemQualityIncreasesTwiceAsFastWhenSellInIsLessThanZero()
         {
             var item = new Item { SellIn = 0, Quality = 6, ItemType = ItemType.Aged };
 
@@ -84,29 +84,7 @@ namespace GildedRose.Tests
         }
 
         [Test]
-        public void StandardItemQualityIsNeverNegative()
-        {
-            var item = new Item { SellIn = 10, Quality = 0 };
-
-            UpdateItem(item);
-
-            Assert.AreEqual(0, item.Quality);
-            Assert.AreEqual(9, item.SellIn);
-        }
-
-        [Test]
-        public void SulfurasNeverDecreasesInQualityAndNeverHasToBeSold()
-        {
-            var item = new Item { SellIn = 10, Quality = 80, ItemType = ItemType.Legendary };
-
-            UpdateItem(item);
-
-            Assert.AreEqual(80, item.Quality);
-            Assert.AreEqual(10, item.SellIn);
-        }
-
-        [Test]
-        public void AgedBrieQualityCanNeverBeMoreThanFifty()
+        public void AgedItemQualityCanNeverBeMoreThanFifty()
         {
             var item = new Item { SellIn = -1, Quality = 50, ItemType = ItemType.Aged };
 
@@ -117,7 +95,29 @@ namespace GildedRose.Tests
         }
 
         [Test]
-        public void ConjuredManaCakeQualityDecreasesTwiceAsFast()
+        public void PerishableItemQualityIsNeverNegative()
+        {
+            var item = new Item { SellIn = 10, Quality = 0 };
+
+            UpdateItem(item);
+
+            Assert.AreEqual(0, item.Quality);
+            Assert.AreEqual(9, item.SellIn);
+        }
+
+        [Test]
+        public void LegendaryItemNeverDecreasesInQualityAndNeverHasToBeSold()
+        {
+            var item = new Item { SellIn = 10, Quality = 80, ItemType = ItemType.Legendary };
+
+            UpdateItem(item);
+
+            Assert.AreEqual(80, item.Quality);
+            Assert.AreEqual(10, item.SellIn);
+        }
+
+        [Test]
+        public void ConjuredItemQualityDecreasesTwiceAsFast()
         {
             var item = new Item { SellIn = 6, Quality = 10, ItemType = ItemType.Conjured };
 
