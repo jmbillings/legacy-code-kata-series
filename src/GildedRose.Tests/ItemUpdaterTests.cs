@@ -42,7 +42,7 @@ namespace GildedRose.Tests
         [Test]
         public void BackstagePassItemShouldIncreaseQualityTwiceAsFastWhenSellInLessThanElevenDays()
         {
-            var item = new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 10, Quality = 6 };
+            var item = new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 10, Quality = 6, ItemType = ItemType.Event};
 
             UpdateItem(item);
 
@@ -53,7 +53,7 @@ namespace GildedRose.Tests
         [Test]
         public void BackstagePassItemShouldIncreaseQualityThreeTimesAsFastWhenSellInLessThanSixDays()
         {
-            var item = new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 5, Quality = 6 };
+            var item = new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 5, Quality = 6, ItemType = ItemType.Event };
 
             UpdateItem(item);
 
@@ -64,7 +64,7 @@ namespace GildedRose.Tests
         [Test]
         public void BackstagePassItemShouldHaveZeroQualityWhenSellInBelowZero()
         {
-            var item = new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 0, Quality = 6 };
+            var item = new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 0, Quality = 6, ItemType = ItemType.Event };
 
             UpdateItem(item);
 

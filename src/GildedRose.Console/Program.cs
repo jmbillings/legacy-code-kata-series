@@ -31,7 +31,8 @@ namespace GildedRose.Console
                     {
                         Name = "Backstage passes to a TAFKAL80ETC concert",
                         SellIn = 15,
-                        Quality = 20
+                        Quality = 20,
+                        ItemType = ItemType.Event
                     },
                     new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6, ItemType = ItemType.Conjured}
                 }
@@ -63,7 +64,7 @@ namespace GildedRose.Console
                 {
                     UpdateAgeingItem(item);
                 }
-                else if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
+                else if (item.ItemType == ItemType.Event)
                 {
                     UpdateDesirableEventItem(item);
                 }
