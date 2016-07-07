@@ -60,30 +60,26 @@ namespace GildedRose.Console
         {
             foreach (var item in items)
             {
-                if (item.ItemType == ItemType.Aged)
+                switch (item.ItemType)
                 {
-                    UpdateAgeingItem(item);
-                }
-                else if (item.ItemType == ItemType.Event)
-                {
-                    UpdateDesirableEventItem(item);
-                }
-                else if (item.ItemType == ItemType.Legendary)
-                {
-                    UpdateLegendaryItem(item);
-                }
-                else if (item.ItemType == ItemType.Conjured)
-                {
-                    UpdateConjuredItem(item);
-                }
-                else if (item.ItemType == ItemType.Perishable)
-                {
-                    UpdatePerishableItem(item);
-                }
-                else
-                {
-                    throw new InvalidOperationException(
-                        $"Item Type was not specified for item {item.Name}, of type {item.ItemType}");
+                    case ItemType.Aged:
+                        UpdateAgeingItem(item);
+                        break;
+                    case ItemType.Event:
+                        UpdateDesirableEventItem(item);
+                        break;
+                    case ItemType.Legendary:
+                        UpdateLegendaryItem(item);
+                        break;
+                    case ItemType.Conjured:
+                        UpdateConjuredItem(item);
+                        break;
+                    case ItemType.Perishable:
+                        UpdatePerishableItem(item);
+                        break;
+                    default:
+                        throw new InvalidOperationException(
+                            $"Item Type was not specified for item {item.Name}, of type {item.ItemType}");
                 }
             }
         }
