@@ -63,7 +63,7 @@ namespace GildedRose.Console
                 switch (item.ItemType)
                 {
                     case ItemType.Aged:
-                        new ItemUpdateRule().UpdateItem(item);
+                        new AgedItemUpdateRule().UpdateItem(item);
                         break;
                     case ItemType.Event:
                         new EventItemUpdateRule().UpdateItem(item);
@@ -83,5 +83,6 @@ namespace GildedRose.Console
                 }
             }
         }
+
     }
 }

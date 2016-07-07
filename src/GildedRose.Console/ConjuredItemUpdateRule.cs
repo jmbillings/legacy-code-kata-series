@@ -1,6 +1,6 @@
 namespace GildedRose.Console
 {
-    internal class ConjuredItemUpdateRule
+    internal class ConjuredItemUpdateRule : IItemUpdateRule
     {
         public void UpdateItem(Item item)
         {

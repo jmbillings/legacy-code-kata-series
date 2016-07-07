@@ -1,6 +1,6 @@
 ﻿namespace GildedRose.Console
 {
-    internal class PerishableItemUpdateRule
+    internal class PerishableItemUpdateRule : IItemUpdateRule
     {
         public void UpdateItem(Item item)
         {

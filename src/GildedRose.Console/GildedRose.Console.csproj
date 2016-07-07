@@ -43,7 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ItemUpdateRule.cs" />
+    <Compile Include="IItemUpdateRuleFactory.cs" />
+    <Compile Include="AgedItemUpdateRule.cs" />
     <Compile Include="ConjuredItemUpdateRule.cs" />
     <Compile Include="EventItemUpdateRule.cs" />
     <Compile Include="IItemUpdateRule.cs" />

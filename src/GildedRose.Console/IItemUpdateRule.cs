@@ -1,6 +1,6 @@
 ﻿namespace GildedRose.Console
 {
-    internal interface IItemUpdateRule
+    public interface IItemUpdateRule
     {
         void UpdateItem(Item item);
     }
