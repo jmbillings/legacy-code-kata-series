@@ -119,7 +119,7 @@ namespace GildedRose.Tests
         [Test]
         public void ConjuredManaCakeQualityDecreasesTwiceAsFast()
         {
-            var item = new Item { Name = "Conjured Mana Cake", SellIn = 6, Quality = 10 };
+            var item = new Item { Name = "Conjured Mana Cake", SellIn = 6, Quality = 10, ItemType = ItemType.Conjured};
 
             UpdateItem(item);
 
