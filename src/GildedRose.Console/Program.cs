@@ -80,6 +80,11 @@ namespace GildedRose.Console
                 {
                     UpdatePerishableItem(item);
                 }
+                else
+                {
+                    throw new InvalidOperationException(
+                        $"Item Type was not specified for item {item.Name}, of type {item.ItemType}");
+                }
             }
         }
 
