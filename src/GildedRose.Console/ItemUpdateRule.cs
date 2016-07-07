@@ -1,8 +1,8 @@
 ﻿namespace GildedRose.Console
 {
-    internal class AgedItemUpdateRule
+    internal class ItemUpdateRule : IItemUpdateRule
     {
-        public static void UpdateItem(Item item)
+        public void UpdateItem(Item item)
         {
             item.IncreaseQuality();
             item.DecreaseSellIn();

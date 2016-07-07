@@ -63,19 +63,19 @@ namespace GildedRose.Console
                 switch (item.ItemType)
                 {
                     case ItemType.Aged:
-                        AgedItemUpdateRule.UpdateItem(item);
+                        new ItemUpdateRule().UpdateItem(item);
                         break;
                     case ItemType.Event:
-                        EventItemUpdateRule.UpdateItem(item);
+                        new EventItemUpdateRule().UpdateItem(item);
                         break;
                     case ItemType.Legendary:
-                        LegendaryItemUpdateRule.UpdateItem(item);
+                        new LegendaryItemUpdateRule().UpdateItem(item);
                         break;
                     case ItemType.Conjured:
-                        ConjuredItemUpdateRule.UpdateItem(item);
+                        new ConjuredItemUpdateRule().UpdateItem(item);
                         break;
                     case ItemType.Perishable:
-                        PerishableItemUpdateRule.UpdateItem(item);
+                        new PerishableItemUpdateRule().UpdateItem(item);
                         break;
                     default:
                         throw new InvalidOperationException(
