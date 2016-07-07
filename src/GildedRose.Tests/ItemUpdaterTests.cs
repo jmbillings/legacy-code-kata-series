@@ -97,7 +97,7 @@ namespace GildedRose.Tests
         [Test]
         public void SulfurasNeverDecreasesInQualityAndNeverHasToBeSold()
         {
-            var item = new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 10, Quality = 80 };
+            var item = new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 10, Quality = 80, ItemType = ItemType.Legendary};
 
             UpdateItem(item);
 
