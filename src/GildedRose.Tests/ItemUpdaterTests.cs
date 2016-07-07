@@ -75,7 +75,7 @@ namespace GildedRose.Tests
         [Test]
         public void AgedBrieQualityIncreasesTwiceAsFastWhenSellInIsLessThanZero()
         {
-            var item = new Item { Name = "Aged Brie", SellIn = 0, Quality = 6 };
+            var item = new Item { Name = "Aged Brie", SellIn = 0, Quality = 6, ItemType = ItemType.Aged};
 
             UpdateItem(item);
 
@@ -108,7 +108,7 @@ namespace GildedRose.Tests
         [Test]
         public void AgedBrieQualityCanNeverBeMoreThanFifty()
         {
-            var item = new Item { Name = "Aged Brie", SellIn = -1, Quality = 50 };
+            var item = new Item { Name = "Aged Brie", SellIn = -1, Quality = 50, ItemType = ItemType.Aged};
 
             UpdateItem(item);
 
