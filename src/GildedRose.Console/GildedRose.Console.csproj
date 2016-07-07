@@ -43,8 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgedItemUpdateRule.cs" />
+    <Compile Include="ConjuredItemUpdateRule.cs" />
+    <Compile Include="EventItemUpdateRule.cs" />
     <Compile Include="ItemType.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="LegendaryItemUpdateRule.cs" />
+    <Compile Include="PerishableItemUpdateRule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

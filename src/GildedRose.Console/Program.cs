@@ -63,80 +63,24 @@ namespace GildedRose.Console
                 switch (item.ItemType)
                 {
                     case ItemType.Aged:
-                        UpdateAgeingItem(item);
+                        AgedItemUpdateRule.UpdateAgeingItem(item);
                         break;
                     case ItemType.Event:
-                        UpdateDesirableEventItem(item);
+                        EventItemUpdateRule.UpdateDesirableEventItem(item);
                         break;
                     case ItemType.Legendary:
-                        UpdateLegendaryItem(item);
+                        LegendaryItemUpdateRule.UpdateLegendaryItem(item);
                         break;
                     case ItemType.Conjured:
-                        UpdateConjuredItem(item);
+                        ConjuredItemUpdateRule.UpdateConjuredItem(item);
                         break;
                     case ItemType.Perishable:
-                        UpdatePerishableItem(item);
+                        PerishableItemUpdateRule.UpdatePerishableItem(item);
                         break;
                     default:
                         throw new InvalidOperationException(
                             $"Item Type was not specified for item {item.Name}, of type {item.ItemType}");
                 }
-            }
-        }
-
-        private static void UpdateConjuredItem(Item item)
-        {
-            item.DecreaseQuality();
-            item.DecreaseQuality();
-            item.DecreaseSellIn();
-        }
-
-        private static void UpdateAgeingItem(Item item)
-        {
-            item.IncreaseQuality();
-            item.DecreaseSellIn();
-
-            if (item.HasPassedSellByDate())
-            {
-                item.IncreaseQuality();
-            }
-        }
-
-        private static void UpdateDesirableEventItem(Item item)
-        {
-            // Tickets are more valuable when an event is closer
-            if (item.SellIn <= 10)
-            {
-                item.IncreaseQuality();
-            }
-
-            // They increase in value much more the closer we are to the event
-            if (item.SellIn <= 5)
-            {
-                item.IncreaseQuality();
-            }
-
-            item.IncreaseQuality();
-            item.DecreaseSellIn();
-
-            if (item.HasPassedSellByDate())
-            {
-                item.Quality = 0;
-            }
-        }
-
-        private static void UpdateLegendaryItem(Item item)
-        {
-        }
-
-        private static void UpdatePerishableItem(Item item)
-        {
-            item.DecreaseQuality();
-            item.DecreaseSellIn();
-
-            if (item.HasPassedSellByDate())
-            {
-                item.DecreaseQuality();
             }
         }
     }
